@@ -1,0 +1,4 @@
+version: "2.1"
+services:
+  migrations:
+    entrypoint: ./node_modules/mongodb-migrations/bin/mm migrate --config configs/local-dev-migrations.json

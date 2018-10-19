@@ -1,0 +1,64 @@
+version: "2.1"
+services:
+  api:
+    build:
+      context: ./miniplate
+      dockerfile: ./Dockerfile
+    image: miniplate/api:v1
+    container_name: "sample-api"
+    entrypoint: npm run start:prod
+    environment:
+      - DATABASE_HOST=mongodb
+      - DATABASE_SSL_SUPPORT=false
+      - DATABASE_NAME=miniplate
+      - DATABASE_PORT=27017
+      - DATABASE_USERNAME=app
+      - DATABASE_PASSWORD=devApp
+      - DATABASE_SSL=false
+      - PORT=3001
+      - DEBUG=true
+    depends_on:
+      - migrations
+      - mongodb
+    restart: on-failure      
+    volumes:
+      - ./miniplate/server:/app/miniplate/server
+    ports:
+      - "3001:3001"
+    expose:
+      - "3001"
+    links:
+      - mongodb
+    depends_on:
+      mongodb:
+        condition: service_healthy
+  migrations:
+    build:
+      context: ./db-migrations
+    image: miniplate/migrations:v1
+    container_name: "miniplate-db-migrations"
+    entrypoint: ./node_modules/mongodb-migrations/bin/mm migrate --config configs/local-dev-migrations.json
+    links:
+      - mongodb
+    depends_on:
+      mongodb:
+        condition: service_healthy
+  mongodb:
+    image: aashreys/mongo-auth:latest
+    container_name: "miniplate-mongodb"
+    volumes:
+      - ./mongo/db:/mongo/db
+    environment:
+      - AUTH=yes
+      - MONGODB_ADMIN_USER=admin
+      - MONGODB_ADMIN_PASS=devAdmin
+      - MONGODB_APPLICATION_USER=app
+      - MONGODB_APPLICATION_PASS=devApp
+      - MONGODB_APPLICATION_DATABASE=miniplate
+    ports:
+      - 27017:27017
+    healthcheck:
+      test: mongo admin -u admin -p devAdmin << EOF || exit 1
+      interval: 5s
+      timeout: 20s
+      retries: 3

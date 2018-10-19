@@ -1,0 +1,21 @@
+{
+  "name": "db-migrations",
+  "version": "1.0.0",
+  "description": "Contains the database migrations",
+  "main": "migrations.js",
+  "scripts": {
+    "migrate:local:dev": "DEBUG=true node ./node_modules/mongodb-migrations/bin/mm migrate --config=configs/local-dev-migrations.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/droidpl/miniplate-docker-mongo-node-backend"
+  },
+  "author": "Javier de Pedro López",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/droidpl/miniplate-docker-mongo-node-backend",
+  "dependencies": {
+    "mongodb-migrations": "0.8.5",
+    "bluebird": "3.5.1",
+    "mongoose": "4.11.10"
+  }
+}
