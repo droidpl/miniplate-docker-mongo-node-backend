@@ -1,0 +1,41 @@
+{
+  "name": "miniplate-server",
+  "version": "1.0.0",
+  "description": "Miniplate Node server application",
+  "scripts": {
+    "start:dev": "nodemon --watch server server.js",
+    "start:prod": "node server.js",
+    "lint": "eslint server",
+    "test": "mocha --compilers js:babel-core/register ./test/test-runner.test.js ./test/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/droidpl/miniplate-docker-mongo-node-backend"
+  },
+  "author": "Javier de Pedro López",
+  "license": "MIT v2",
+  "homepage": "https://github.com/droidpl/miniplate-docker-mongo-node-backend",
+  "dependencies": {
+    "bluebird": "3.5.1",
+    "body-parser": "1.18.3",
+    "express": "4.14.0",
+    "http-errors": "1.7.0",
+    "import-export": "1.0.1",
+    "json-structure-validator": "1.2.1",
+    "lodash": "4.17.11",
+    "mongoose": "5.2.6",
+    "winston": "2.2.0",
+    "promise-callback": "3.0.3"
+  },
+  "devDependencies": {
+    "babel": "6.23.0",
+    "babel-core": "6.26.3",
+    "babel-preset-env": "1.7.0",
+    "chai": "4.1.2",
+    "eslint": "4.2.0",
+    "eslint-config-google": "0.9.1",
+    "mocha": "3.5.3",
+    "nodemon": "1.18.4",
+    "sinon": "6.2.0"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "basePath": "/api",
+  "info": {
+    "description": "Sample API for the applications.\n",
+    "version": "1.0.0",
+    "title": "Sample",
+    "contact": {
+      "email": "javierdepedrolopez@gmail.com",
+      "url": "https://github.com/droidpl/miniplate-docker-mongo-node-backend"
+    },
+    "license": {
+      "name": "MIT License",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "tags": [
+  ],
+  "paths": {
+  },
+  "securityDefinitions": {
+  },
+  "definitions": {
+  }
+}
