@@ -17,8 +17,8 @@
   "homepage": "https://github.com/droidpl/miniplate-docker-mongo-node-backend",
   "dependencies": {
     "bluebird": "3.5.1",
-    "body-parser": "1.18.3",
-    "express": "4.14.0",
+    "body-parser": "1.20.1",
+    "express": "4.18.2",
     "http-errors": "1.7.0",
     "import-export": "1.0.1",
     "json-structure-validator": "1.2.1",
